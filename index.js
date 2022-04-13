@@ -2,13 +2,14 @@ $(document).ready(function() {
 
     let descriptionAnimation = 0;
     let buttonAnimation = 0;
+    var description = $(".description-container-hidden");
+    var buttonLeft = $(".left-button");
+    var buttonRight = $(".right-button");
+    var title = $(".title-container");
+    var mouse = $(".mouse-scroll");
+    var body = $("#main-body");
 
     $(window).scroll(function() {
-        var description = $(".description-container-hidden");
-        var buttonLeft = $(".left-button");
-        var buttonRight = $(".right-button");
-        var title = $(".title-container");
-        var mouse = $(".mouse-scroll");
         var windowpos = $(window).scrollTop();
 
         if (windowpos >= 100) {
@@ -50,4 +51,24 @@ $(document).ready(function() {
         }
 
     });
+
+    buttonRight.click(() => {
+        body.addClass("main-body-right");
+
+        setTimeout(
+            function() {
+                window.location.href = "learn_page/index.html";
+            }, 500);
+    });
+
+    buttonLeft.click(() => {
+        body.addClass("main-body-left");
+
+        setTimeout(
+            function() {
+                window.location.href = "learn_page/index.html";
+            }, 500);
+    });
+
+
 });

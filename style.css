@@ -1,3 +1,7 @@
+html {
+    overflow-x: hidden;
+}
+
 a {
     text-decoration: none;
     color: inherit;
@@ -29,7 +33,29 @@ body {
 }
 
 
-/* header title */
+/* BODY */
+
+#main-body {
+    opacity: 1;
+    transform: translateX(0%);
+}
+
+.main-body-right {
+    transition: all .75s;
+    transition-property: opacity, transform;
+    opacity: 0 !important;
+    transform: translateX(100%) !important;
+}
+
+.main-body-left {
+    transition: all .75s;
+    transition-property: opacity, transform;
+    opacity: 0 !important;
+    transform: translateX(-100%) !important;
+}
+
+
+/* HEADER TITLE */
 
 .title-animation-container {
     display: inline-block;
@@ -113,9 +139,9 @@ body {
     display: block;
     margin: 0 auto;
     width: 24px;
-    height: 100px;
+    height: 10em;
     margin-top: 10em;
-    margin-bottom: 13em;
+    margin-bottom: 5em;
     transition: opacity .5s ease-in;
     opacity: 1;
 }
@@ -350,12 +376,13 @@ body {
     border: .2em solid white;
     /* padding: .75em; */
     margin: 2em;
-    width: 10em;
-    height: 2.75em;
+    width: 12em;
+    height: 3.2em;
     border-radius: 3em;
     background: none;
     color: white;
     opacity: 0;
+    font-size: 1em;
 }
 
 .left-button {
