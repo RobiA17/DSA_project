@@ -1,3 +1,12 @@
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
 body {
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     background-size: 400% 400%;
@@ -30,29 +39,23 @@ body {
 }
 
 .title-animation-container:first-of-type {
-    animation: showup 7s infinite;
+    animation: showup 1s;
 }
 
 .title-animation-container:last-of-type {
-    animation: reveal 7s infinite;
+    animation: reveal 5s;
 }
 
 .title-animation-container:last-of-type span {
-    animation: slidein 7s infinite;
+    animation: slidein 5s;
 }
 
 @keyframes showup {
     0% {
         opacity: 0;
     }
-    20% {
-        opacity: 1;
-    }
-    80% {
-        opacity: 1;
-    }
     100% {
-        opacity: 0;
+        opacity: 1;
     }
 }
 
@@ -81,38 +84,45 @@ body {
         width: 0px;
     }
     30% {
-        width: 4.75em;
+        width: 3.4em;
     }
     80% {
         opacity: 1;
     }
     100% {
-        opacity: 0;
-        width: 4.75em;
+        opacity: 1;
+        width: 3.4em;
     }
 }
 
 .title-container {
     padding-top: 5em;
+    transition: opacity .5s ease-out;
+    opacity: 1;
+}
+
+.title-container-hidden {
+    transition: opacity .5s ease-out;
+    opacity: 0;
 }
 
 
 /* MOUSE */
 
-*,
-*:before,
-*:after {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-.mouse_scroll {
+.mouse-scroll {
     display: block;
     margin: 0 auto;
     width: 24px;
     height: 100px;
-    margin-top: 125px;
+    margin-top: 10em;
+    margin-bottom: 13em;
+    transition: opacity .5s ease-in;
+    opacity: 1;
+}
+
+.mouse-scroll-hidden {
+    transition: opacity .5s ease-out;
+    opacity: 0;
 }
 
 .m_scroll_arrows {
@@ -132,7 +142,7 @@ body {
 }
 
 .unu {
-    margin-top: 1px;
+    margin-top: .2em;
 }
 
 .unu,
@@ -157,7 +167,7 @@ body {
     -webkit-animation-direction: alternate;
     animation-delay: .2s;
     animation-direction: alternate;
-    margin-top: -6px;
+    /* margin-top: -6px; */
 }
 
 .trei {
@@ -166,27 +176,26 @@ body {
     -webkit-animation-direction: alternate;
     animation-delay: .3s;
     animation-direction: alternate;
-    margin-top: -6px;
+    /* margin-top: -6px; */
 }
 
 .mouse {
-    height: 42px;
-    width: 24px;
+    height: 2.5em;
+    width: 1.5em;
     border-radius: 14px;
     transform: none;
-    border: 2px solid white;
-    top: 170px;
+    border: .15em solid white;
 }
 
 .wheel {
-    height: 5px;
-    width: 2px;
+    height: .2em;
+    width: .2em;
     display: block;
     margin: 5px auto;
     background: white;
     position: relative;
-    height: 4px;
-    width: 4px;
+    /* height: 4px;
+    width: 4px; */
     border: 2px solid #fff;
     -webkit-border-radius: 8px;
     border-radius: 8px;
@@ -215,83 +224,59 @@ body {
 
 @-moz-keyframes mouse-wheel {
     0% {
-        top: 1px;
+        top: 5px;
     }
     25% {
-        top: 2px;
+        top: 15px;
     }
     50% {
-        top: 3px;
+        top: 20px;
     }
     75% {
-        top: 2px;
+        top: 15px;
     }
     100% {
-        top: 1px;
+        top: 5px;
     }
 }
 
 @-o-keyframes mouse-wheel {
     0% {
-        top: 1px;
+        top: 5px;
     }
     25% {
-        top: 2px;
+        top: 15px;
     }
     50% {
-        top: 3px;
+        top: 20px;
     }
     75% {
-        top: 2px;
+        top: 15px;
     }
     100% {
-        top: 1px;
+        top: 5px;
     }
 }
 
 @keyframes mouse-wheel {
     0% {
-        top: 1px;
+        top: 5px;
     }
     25% {
-        top: 2px;
+        top: 15px;
     }
     50% {
-        top: 3px;
+        top: 20px;
     }
     75% {
-        top: 2px;
+        top: 15px;
     }
     100% {
-        top: 1px;
+        top: 5px;
     }
 }
 
 @-webkit-keyframes mouse-scroll {
-    0% {
-        opacity: 0;
-    }
-    50% {
-        opacity: .5;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@-moz-keyframes mouse-scroll {
-    0% {
-        opacity: 0;
-    }
-    50% {
-        opacity: .5;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@-o-keyframes mouse-scroll {
     0% {
         opacity: 0;
     }
@@ -313,4 +298,110 @@ body {
     100% {
         opacity: 1;
     }
+}
+
+
+/* Apearring stuff */
+
+
+/* Middle text */
+
+.description-container-hidden {
+    opacity: 0;
+    padding: 2em 1em 3em 1em;
+}
+
+.off {
+    animation: opacityOff .25s ease-out;
+}
+
+@keyframes opacityOn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes opacityOff {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.description-container-revealed {
+    animation: opacityOn .5s ease-in;
+    opacity: 1;
+}
+
+.test {
+    height: 30em;
+}
+
+
+/* Buttons */
+
+.left-button,
+.right-button {
+    border: .2em solid white;
+    /* padding: .75em; */
+    margin: 2em;
+    width: 10em;
+    height: 2.75em;
+    border-radius: 3em;
+    background: none;
+    color: white;
+    opacity: 0;
+}
+
+.left-button {
+    transform: translateX(-50%);
+}
+
+.right-button {
+    transform: translateX(50%);
+}
+
+.visible-left {
+    transition: all .5s ease-out;
+    transition-property: opacity, transform;
+    transform: translateX(0%);
+    opacity: 1;
+    /* animation: buttonComeInLeft .5s ease-in; */
+}
+
+.dissapear-left {
+    transition: all .5s ease-out;
+    transition-property: opacity, transform;
+    transform: translateX(-50%);
+    opacity: 0;
+    /* animation: buttonComeOutLeft .5s ease-in; */
+}
+
+.visible-right {
+    transition: all .5s ease-out;
+    transition-property: opacity, transform;
+    transform: translateX(0%);
+    opacity: 1;
+    /* animation: buttonComeInRight .5s ease-in; */
+}
+
+.dissapear-right {
+    transition: all .5s ease-out;
+    transition-property: opacity, transform;
+    transform: translateX(50%);
+    opacity: 0;
+    /* animation: buttonComeOutRight .5s ease-in; */
+}
+
+.left-button:hover,
+.right-button:hover {
+    transition: all .5s ease-in-out;
+    transition-property: background-color, color;
+    background: white;
+    color: black;
 }
