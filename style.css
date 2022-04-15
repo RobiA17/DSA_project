@@ -432,3 +432,38 @@ body {
     background: white;
     color: black;
 }
+
+
+/* LEARN PAGE */
+
+#learn-page {
+    display: none;
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+.learn-page-reveal {
+    /* transition: all .75s ease-in;
+    transition-property: opacity, display, transform; */
+    animation: learnIn .75s ease-in;
+    opacity: 1 !important;
+    display: block !important;
+    transform: translateX(0%) !important;
+}
+
+@keyframes learnIn {
+    from {
+        opacity: 0;
+        display: none;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        display: block;
+        transform: translateX(0%);
+    }
+}
+
+.display-none {
+    display: none !important;
+}

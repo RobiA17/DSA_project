@@ -8,6 +8,7 @@ $(document).ready(function() {
     var title = $(".title-container");
     var mouse = $(".mouse-scroll");
     var body = $("#main-body");
+    var learnPage = $("#learn-page");
 
     $(window).scroll(function() {
         var windowpos = $(window).scrollTop();
@@ -57,8 +58,18 @@ $(document).ready(function() {
 
         setTimeout(
             function() {
-                window.location.href = "learn_page/index.html";
-            }, 500);
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }, 100
+        );
+
+        setTimeout(
+            function() {
+                learnPage.addClass("learn-page-reveal");
+                body.addClass("display-none");
+            }, 200);
     });
 
     buttonLeft.click(() => {
