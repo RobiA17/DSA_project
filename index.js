@@ -2,6 +2,7 @@ $(document).ready(function() {
 
     let descriptionAnimation = 0;
     let buttonAnimation = 0;
+    var index = 0;
     var description = $(".description-container-hidden");
     var buttonLeft = $(".left-button");
     var buttonRight = $(".right-button");
@@ -9,6 +10,30 @@ $(document).ready(function() {
     var mouse = $(".mouse-scroll");
     var body = $("#main-body");
     var learnPage = $("#learn-page");
+    var menu = $(".menu");
+    var menuButton = $(".menu-icon");
+    var exitButton = $(".menu-exit-button");
+    var homeButton = $("#home-button");
+    var learnButton = $("#learn-button");
+    var animationButton = $("#animation-button");
+
+
+    function loadPages(type) {
+        let file;
+        switch (type) {
+            default: file = "index.html";
+            break;
+            case 1:
+                    file = "learn.html";
+                break;
+        }
+
+        $.get(file, (response) => {
+            let newDoc = document.open("text/html", "replace");
+            newDoc.write(response);
+            newDoc.close();
+        });
+    }
 
     $(window).scroll(function() {
         var windowpos = $(window).scrollTop();
@@ -57,7 +82,7 @@ $(document).ready(function() {
         body.addClass("main-body-right");
 
         setTimeout(
-            function() {
+            () => {
                 window.scrollTo({
                     top: 0,
                     behavior: 'smooth'
@@ -69,17 +94,59 @@ $(document).ready(function() {
             function() {
                 learnPage.addClass("learn-page-reveal");
                 body.addClass("display-none");
+                // loadPages(1);
             }, 200);
+        index = 1;
     });
 
     buttonLeft.click(() => {
-        body.addClass("main-body-left");
+        // body.addClass("main-body-left");
 
-        setTimeout(
-            function() {
-                window.location.href = "learn_page/index.html";
-            }, 500);
+        // setTimeout(
+        //     function() {
+        //         window.location.href = "learn_page/index.html";
+        //     }, 500);
     });
 
+    function closeMenu() {
+        menu.removeClass("menu-appear");
+        menu.addClass("menu-hide");
+        menuButton.removeClass("menu-icon-hide");
+        menuButton.addClass("menu-icon-appear");
+    }
+
+
+    exitButton.click(() => closeMenu());
+
+    menuButton.click(function openMenu() {
+        menu.addClass("menu-appear");
+        menuButton.removeClass("menu-icon-appear");
+        menuButton.addClass("menu-icon-hide");
+    });
+
+    homeButton.click(() => {
+        closeMenu();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+        switch (index) {
+            case 0:
+
+                break;
+            case 1:
+                setTimeout(
+                    function() {
+                        learnPage.addClass('learn-page-hide');
+                        body.removeClass('display-none');
+                        // loadPages(1);
+                    }, 200);
+
+                body.addClass('main-body-in');
+
+                index = 0;
+                break;
+        }
+    });
 
 });

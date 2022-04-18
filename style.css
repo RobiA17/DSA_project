@@ -2,6 +2,10 @@ html {
     overflow-x: hidden;
 }
 
+i {
+    margin: 0 .2em;
+}
+
 a {
     text-decoration: none;
     color: inherit;
@@ -18,6 +22,7 @@ body {
     height: 100vh;
     text-align: center;
     color: white;
+    padding-right: 30px;
 }
 
 @keyframes gradient {
@@ -54,6 +59,13 @@ body {
     transform: translateX(-100%) !important;
 }
 
+.main-body-in {
+    transition: all .75s;
+    transition-property: opacity, transform;
+    opacity: 1 !important;
+    transform: translateX(0%) !important;
+}
+
 
 /* HEADER TITLE */
 
@@ -65,23 +77,31 @@ body {
 }
 
 .title-animation-container:first-of-type {
-    animation: showup 1s;
+    animation: showup 7s infinite;
 }
 
 .title-animation-container:last-of-type {
-    animation: reveal 5s;
+    width: 0px;
+    animation: reveal 7s infinite;
 }
 
 .title-animation-container:last-of-type span {
-    animation: slidein 5s;
+    margin-left: -355px;
+    animation: slidein 7s infinite;
 }
 
 @keyframes showup {
     0% {
         opacity: 0;
     }
-    100% {
+    20% {
         opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
     }
 }
 
@@ -110,14 +130,14 @@ body {
         width: 0px;
     }
     30% {
-        width: 3.4em;
+        width: 3.45em;
     }
     80% {
         opacity: 1;
     }
     100% {
-        opacity: 1;
-        width: 3.4em;
+        opacity: 0;
+        width: 3.45em;
     }
 }
 
@@ -193,7 +213,6 @@ body {
     -webkit-animation-direction: alternate;
     animation-delay: .2s;
     animation-direction: alternate;
-    /* margin-top: -6px; */
 }
 
 .trei {
@@ -202,7 +221,6 @@ body {
     -webkit-animation-direction: alternate;
     animation-delay: .3s;
     animation-direction: alternate;
-    /* margin-top: -6px; */
 }
 
 .mouse {
@@ -220,8 +238,6 @@ body {
     margin: 5px auto;
     background: white;
     position: relative;
-    /* height: 4px;
-    width: 4px; */
     border: 2px solid #fff;
     -webkit-border-radius: 8px;
     border-radius: 8px;
@@ -372,17 +388,53 @@ body {
 /* Buttons */
 
 .left-button,
-.right-button {
+.right-button,
+.menu-button {
     border: .2em solid white;
-    /* padding: .75em; */
-    margin: 2em;
-    width: 12em;
-    height: 3.2em;
-    border-radius: 3em;
+    padding: 0em 1.2em 0em 1.2em;
+    margin: 0em 3em;
+    width: 15em;
+    height: 3.5em;
+    border-radius: 4em;
     background: none;
     color: white;
     opacity: 0;
-    font-size: 1em;
+    font-size: 1.1em;
+}
+
+.left-button::before,
+.right-button::before,
+.menu-button::before {
+    content: "";
+    position: absolute;
+    background-color: #fff;
+    border-radius: 3em;
+    height: 110%;
+    width: 0%;
+    left: 0;
+    top: 0;
+    transition: .75s;
+    z-index: -1;
+    opacity: 0;
+    transform: translateX(-1%);
+    /* transform: translateY(-2%); */
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.menu-button {
+    position: relative;
+}
+
+.left-button:hover::before,
+.right-button:hover::before,
+.menu-button:hover::before {
+    width: 102%;
+    opacity: 1;
+    /* transform: translateY(%); */
+    /* transform: translateX(-5%); */
+    margin: 0px;
+    padding: 0px;
 }
 
 .left-button {
@@ -398,7 +450,6 @@ body {
     transition-property: opacity, transform;
     transform: translateX(0%);
     opacity: 1;
-    /* animation: buttonComeInLeft .5s ease-in; */
 }
 
 .dissapear-left {
@@ -406,7 +457,6 @@ body {
     transition-property: opacity, transform;
     transform: translateX(-50%);
     opacity: 0;
-    /* animation: buttonComeOutLeft .5s ease-in; */
 }
 
 .visible-right {
@@ -414,7 +464,6 @@ body {
     transition-property: opacity, transform;
     transform: translateX(0%);
     opacity: 1;
-    /* animation: buttonComeInRight .5s ease-in; */
 }
 
 .dissapear-right {
@@ -422,15 +471,14 @@ body {
     transition-property: opacity, transform;
     transform: translateX(50%);
     opacity: 0;
-    /* animation: buttonComeOutRight .5s ease-in; */
 }
 
 .left-button:hover,
-.right-button:hover {
-    transition: all .5s ease-in-out;
-    transition-property: background-color, color;
-    background: white;
+.right-button:hover,
+.menu-button:hover {
+    transition: .75s ease-in;
     color: black;
+    background-color: white;
 }
 
 
@@ -443,12 +491,17 @@ body {
 }
 
 .learn-page-reveal {
-    /* transition: all .75s ease-in;
-    transition-property: opacity, display, transform; */
     animation: learnIn .75s ease-in;
     opacity: 1 !important;
     display: block !important;
     transform: translateX(0%) !important;
+}
+
+.learn-page-hide {
+    transition: all .75s;
+    opacity: 0 !important;
+    display: none !important;
+    transform: translateX(100%) !important;
 }
 
 @keyframes learnIn {
@@ -466,4 +519,77 @@ body {
 
 .display-none {
     display: none !important;
+}
+
+
+/* MENU */
+
+.glass-panel {
+    position: relative;
+    background: rgba( 255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37);
+    backdrop-filter: blur( 11px);
+    -webkit-backdrop-filter: blur( 11px);
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18);
+}
+
+.menu {
+    z-index: 999;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5em;
+    flex-direction: column;
+    right: 70%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+}
+
+.menu-button {
+    opacity: 1 !important;
+}
+
+.menu-exit-button {
+    position: absolute;
+    top: 1.8em;
+    left: 1.2em;
+    border: none;
+    background-color: transparent;
+    font-size: 1.8em;
+    color: white;
+    cursor: pointer;
+}
+
+.menu-hide {
+    transition: all .5s ease-in;
+    transform: translateX(-100%);
+}
+
+.menu-appear {
+    transition: all .5s ease-in;
+    transform: translateX(0%);
+}
+
+.menu-icon {
+    position: fixed;
+    top: 2em;
+    left: 2em;
+    font-size: 1.5em;
+    cursor: pointer;
+    opacity: 1;
+    z-index: 999;
+}
+
+.menu-icon-hide {
+    transition: all .75s ease-out;
+    opacity: 0;
+}
+
+.menu-icon-appear {
+    transition: all .75s ease-in;
+    opacity: 1;
 }

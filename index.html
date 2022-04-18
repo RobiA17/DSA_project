@@ -8,18 +8,35 @@
     <title>List simulation</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/bce769e8f8.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+
+    <i class="fa-solid fa-bars menu-icon"></i>
+
+    <div class="menu glass-panel">
+        <i class="fa-solid fa-arrow-left menu-exit-button"></i>
+        <button class="menu-button" id="home-button">
+            Home
+        </button>
+        <button class="menu-button" id="learn-button">
+            Learn page
+        </button>
+        <button class="menu-button" id="animation-button">
+            Animation page
+        </button>
+    </div>
+
+    <div class="title-container">
+        <a href=".">
+            <div class="title-animation-container">Lists</div>
+            <div class="title-animation-container">
+                <span>AreEasy</span>
+            </div>
+        </a>
+    </div>
     <section id="main-body">
-        <div class="title-container">
-            <a href=".">
-                <div class="title-animation-container">Lists</div>
-                <div class="title-animation-container">
-                    <span>AreEasy</span>
-                </div>
-            </a>
-        </div>
 
         <div class="mouse-scroll">
 
@@ -41,13 +58,10 @@
 
         <div class="button-container">
             <button class="left-button">
-                < Create a list
+                <i class="fa-solid fa-angle-left"></i> Create a list
             </button>
-            <!-- <a href="learn_page/index.html">
-                
-            </a> -->
             <button class="right-button">
-                Learn about lists >
+                Learn about lists <i class="fa-solid fa-angle-right"></i>
             </button>
         </div>
         <div class="test"></div>
@@ -58,7 +72,5 @@
     </section>
     <script src="index.js"></script>
 </body>
-<!-- asd -->
-<!-- asdasdasd -->
 
 </html>
