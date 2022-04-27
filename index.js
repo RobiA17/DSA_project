@@ -1,39 +1,130 @@
 $(document).ready(function() {
 
+    loadData("main-page-content.html");
+    loadAllData();
+
     let descriptionAnimation = 0;
     let buttonAnimation = 0;
     var index = 0;
-    var description = $(".description-container-hidden");
-    var buttonLeft = $(".left-button");
-    var buttonRight = $(".right-button");
     var title = $(".title-container");
-    var mouse = $(".mouse-scroll");
     var body = $("#main-body");
     var learnPage = $("#learn-page");
+    var mainContainer = $("#main-container");
     var menu = $(".menu");
     var menuButton = $(".menu-icon");
     var exitButton = $(".menu-exit-button");
     var homeButton = $("#home-button");
     var learnButton = $("#learn-button");
     var animationButton = $("#animation-button");
+    var mouse;
+    var description;
+    var buttonLeft;
+    var buttonRight;
+
+    function loadAllData() {
+        setTimeout(function() {
+            title = $(".title-container");
+            body = $("#main-body");
+            learnPage = $("#learn-page");
+            mainContainer = $("#main-container");
+            menu = $(".menu");
+            menuButton = $(".menu-icon");
+            exitButton = $(".menu-exit-button");
+            homeButton = $("#home-button");
+            learnButton = $("#learn-button");
+            animationButton = $("#animation-button");
+            mouse = $(".mouse-scroll");
+            description = $(".description-container-hidden");
+            buttonLeft = $(".left-button");
+            buttonRight = $(".right-button");
+
+            buttonRight.click(() => {
+
+                mainBodyToRightOut();
+
+                setTimeout(
+                    function() {
+                        clearMainBody();
+                        loadData("learn-page.html");
+                        mainBodyToLeftIn();
+                    }, 200);
+                index = 1;
+            });
+
+            buttonLeft.click(() => {
+                mainBodyToLeftOut();
+
+                setTimeout(
+                    function() {
+                        clearMainBody();
+                        loadData("animation-page.html");
+                        mainBodyToLeftIn();
+                    }, 200);
+                index = 2;
+            });
 
 
-    function loadPages(type) {
-        let file;
-        switch (type) {
-            default: file = "index.html";
-            break;
-            case 1:
-                    file = "learn.html";
-                break;
-        }
+        }, 100);
+    }
 
-        $.get(file, (response) => {
-            let newDoc = document.open("text/html", "replace");
-            newDoc.write(response);
-            newDoc.close();
+    function mainBodyDownOut() {
+        body.removeClass();
+        body.addClass("main-body-down-out");
+    }
+
+    function mainBodyDownIn() {
+        body.removeClass();
+        body.addClass("main-body-down-in");
+    }
+
+    function mainBodyToRightOut() {
+        body.removeClass("main-body-left-in");
+        body.addClass("main-body-right-out");
+
+        setTimeout(
+            () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }, 100
+        );
+    }
+
+    function mainBodyToLeftOut() {
+        body.removeClass("main-body-right-in");
+        body.addClass("main-body-left-out");
+
+        setTimeout(
+            () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }, 100
+        );
+    }
+
+    function mainBodyToRightIn() {
+        body.addClass("main-body-right-in");
+    }
+
+    function mainBodyToLeftIn() {
+        body.removeClass("main-body-left-out");
+        body.addClass("main-body-left-in");
+    }
+
+    function loadData(from) {
+
+        $.get(from, function(data) {
+            body.append(data);
         });
     }
+
+    function clearMainBody() {
+        body.empty();
+    }
+
 
     $(window).scroll(function() {
         var windowpos = $(window).scrollTop();
@@ -78,35 +169,8 @@ $(document).ready(function() {
 
     });
 
-    buttonRight.click(() => {
-        body.addClass("main-body-right");
 
-        setTimeout(
-            () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            }, 100
-        );
 
-        setTimeout(
-            function() {
-                learnPage.addClass("learn-page-reveal");
-                body.addClass("display-none");
-                // loadPages(1);
-            }, 200);
-        index = 1;
-    });
-
-    buttonLeft.click(() => {
-        // body.addClass("main-body-left");
-
-        // setTimeout(
-        //     function() {
-        //         window.location.href = "learn_page/index.html";
-        //     }, 500);
-    });
 
     function closeMenu() {
         menu.removeClass("menu-appear");
@@ -130,22 +194,81 @@ $(document).ready(function() {
             top: 0,
             behavior: 'smooth'
         });
-        switch (index) {
-            case 0:
+        if (index != 0) {
+            setTimeout(
+                function() {
+                    setTimeout(() => {
+                        mainBodyDownIn();
+                        clearMainBody();
+                        loadData("main-page-content.html");
+                        loadAllData();
+                    }, 500);
+                }, 500);
+            mainBodyDownOut();
+            index = 0;
+        }
+    });
 
-                break;
-            case 1:
-                setTimeout(
-                    function() {
-                        learnPage.addClass('learn-page-hide');
-                        body.removeClass('display-none');
-                        // loadPages(1);
-                    }, 200);
+    homeButton.click(() => {
+        closeMenu();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+        if (index != 0) {
+            setTimeout(
+                function() {
+                    setTimeout(() => {
+                        mainBodyDownIn();
+                        clearMainBody();
+                        loadData("main-page-content.html");
+                        loadAllData();
+                    }, 500);
+                }, 500);
+            mainBodyDownOut();
+            index = 0;
+        }
+    });
 
-                body.addClass('main-body-in');
+    learnButton.click(() => {
+        closeMenu();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+        if (index != 1) {
+            setTimeout(
+                function() {
+                    setTimeout(() => {
+                        mainBodyDownIn();
+                        clearMainBody();
+                        loadData("learn-page.html");
+                        loadAllData();
+                    }, 500);
+                }, 500);
+            mainBodyDownOut();
+            index = 1;
+        }
+    });
 
-                index = 0;
-                break;
+    animationButton.click(() => {
+        closeMenu();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+        if (index != 2) {
+            setTimeout(
+                function() {
+                    setTimeout(() => {
+                        mainBodyDownIn();
+                        clearMainBody();
+                        loadData("animation-page.html");
+                        loadAllData();
+                    }, 500);
+                }, 500);
+            mainBodyDownOut();
+            index = 2;
         }
     });
 
