@@ -37,6 +37,20 @@ body {
     }
 }
 
+.about-me {
+    padding: 2.5em;
+    display: flex;
+    position: relative;
+    bottom: 0%;
+    flex-direction: column;
+    gap: .1em;
+    /* align-items: flex-start; */
+}
+
+.about-me li {
+    text-align: left;
+}
+
 
 /* BODY */
 
@@ -378,7 +392,7 @@ body {
 
 .description-container-hidden {
     opacity: 0;
-    padding: 2em 1em 3em 1em;
+    padding: 2em 8em 3em 8em;
 }
 
 .off {
@@ -409,7 +423,7 @@ body {
 }
 
 .test {
-    height: 30em;
+    height: 32em;
 }
 
 
@@ -417,7 +431,9 @@ body {
 
 .left-button,
 .right-button,
-.menu-button {
+.menu-button,
+.learn-button,
+#animation-page button {
     border: .2em solid white;
     padding: 0em 1.2em 0em 1.2em;
     margin: 0em 3em;
@@ -432,7 +448,8 @@ body {
 
 .left-button::before,
 .right-button::before,
-.menu-button::before {
+.menu-button::before,
+#animation-page button::before {
     content: "";
     position: absolute;
     background-color: #fff;
@@ -456,7 +473,8 @@ body {
 
 .left-button:hover::before,
 .right-button:hover::before,
-.menu-button:hover::before {
+.menu-button:hover::before,
+#animation-page button:hover::before {
     width: 102%;
     opacity: 1;
 }
@@ -470,10 +488,10 @@ body {
 }
 
 .visible-left {
-    transition: all .5s ease-out;
+    transition: all .5s ease-out !important;
     transition-property: opacity, transform;
-    transform: translateX(0%);
-    opacity: 1;
+    transform: translateX(0%) !important;
+    opacity: 1 !important;
 }
 
 .dissapear-left {
@@ -499,50 +517,11 @@ body {
 
 .left-button:hover,
 .right-button:hover,
-.menu-button:hover {
+.menu-button:hover,
+#animation-page button:hover {
     transition: .75s ease-in;
     color: black;
     background-color: white;
-}
-
-
-/* LEARN PAGE */
-
-#main-container {
-    display: none;
-    opacity: 0;
-    transform: translateX(100%);
-}
-
-.learn-page-reveal {
-    animation: learnIn .75s ease-in;
-    opacity: 1 !important;
-    display: block !important;
-    transform: translateX(0%) !important;
-}
-
-.learn-page-hide {
-    transition: all .75s;
-    opacity: 0 !important;
-    display: none !important;
-    transform: translateX(100%) !important;
-}
-
-@keyframes learnIn {
-    from {
-        opacity: 0;
-        display: none;
-        transform: translateX(-100%);
-    }
-    to {
-        opacity: 1;
-        display: block;
-        transform: translateX(0%);
-    }
-}
-
-.display-none {
-    display: none !important;
 }
 
 
@@ -616,4 +595,113 @@ body {
 .menu-icon-appear {
     transition: all .75s ease-in;
     opacity: 1;
+}
+
+
+/* LEARN PAGE */
+
+.learn-container {
+    transition: all .5s ease-out;
+    transform: translateX(-100%);
+    opacity: 0;
+    padding: 0em 5em 5em 5em;
+    margin-bottom: 10em;
+    border-radius: 3em;
+    margin: 10em 1.5em;
+    height: fit-content !important;
+}
+
+.learn-container:hover {
+    background-color: rgb(255 255 255 / 16%);
+    -webkit-box-shadow: 0px 29px 26px -5px rgba(0, 0, 0, 0.46);
+    box-shadow: 0px 29px 26px -5px rgba(0, 0, 0, 0.46);
+}
+
+.learn-title {
+    font-size: 2.5em;
+}
+
+.learn-description {
+    font-size: 1.5em !important;
+}
+
+.learn-button {
+    opacity: 1;
+    /* margin: 1.5em 7em; */
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    justify-content: center;
+    margin-top: 3em;
+}
+
+.left {
+    text-align: left !important;
+}
+
+.right {
+    text-align: right !important;
+}
+
+.linked-lists {
+    margin: 2em 0em 5em 0em;
+}
+
+.linked-lists li {
+    cursor: pointer;
+    width: fit-content;
+}
+
+.linked-lists p {
+    font-size: 1.5em;
+    font-weight: 900;
+}
+
+
+/* pop up window */
+
+.pop-up {
+    display: none;
+    /* width: 30em;
+    height: 20em; */
+    position: fixed;
+    top: 5%;
+    bottom: 5%;
+    left: 2%;
+    right: 2%;
+    z-index: 1000;
+    padding: 5em;
+}
+
+.display-block {
+    display: block !important;
+}
+
+.no-scroll {
+    height: 100% !important;
+    overflow: hidden !important;
+}
+
+code {
+    font-size: 2em;
+}
+
+
+/* ANIMATION PAGE */
+
+#animation-page h1 {
+    margin-top: 5em;
+    font-size: 2.3em;
+}
+
+#animation-page button {
+    position: relative;
+    opacity: 1 !important;
+}
+
+.animation-button-contaienr div {
+    margin: 5em 0em;
 }
