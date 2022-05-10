@@ -85,34 +85,59 @@ $(document).ready(async() => {
         console.log(list.size())
     }
 
+    // POP UP ANIMATION
+
+    async function initPopUp(animationLocation, animationName) {
+        $('.pop-up').addClass('display-block');
+        $('body').addClass('no-scroll');
+        $('html').addClass('no-scroll');
+
+        await $.get(animationLocation, function(data) {
+            $(".pop-up-content").append(data);
+        });
+        $(".restart-button").click(() => {
+            var el = $(animationName),
+                newone = el.clone(true);
+
+            el.before(newone);
+
+            $("." + el.attr("class") + ":last").remove();
+        });
+    }
+
+    function initDropDownInfo() {
+        var linkedFirst = $(".linked-first-animation");
+        var linkedSecond = $(".linked-second-animation");
+
+        linkedFirst.click(() => {
+            initPopUp("lists/linked-list/insert_a_new_node_animation.html", ".first-animation");
+        });
+
+        linkedSecond.click(() => {
+            initPopUp("lists/linked-list/insert_a_new_node_animation.html", ".first-animation");
+        });
+    }
+
     function initLearnPage() {
         learnContainer = $(".learn-container");
         var clicked = false;
         var linkedListInfoButton = $("#linked-list-info-button");
         var linkedListAnimatiobButton = $("#linked-list-animation-button");
 
-        linkedListInfoButton.click(() => {
+        linkedListInfoButton.click(async() => {
 
             if (!clicked) {
-                $.get("lists/linked-list/linked_list.html", function(data) {
+                await $.get("lists/linked-list/linked_list.html", function(data) {
                     $("#linked-desc").append(data);
                 });
                 downButtonToUp('#linked-list-info-button');
+                initDropDownInfo();
                 clicked = !clicked;
             } else {
                 $("#linked-desc").empty();
                 upButtonToDown('#linked-list-info-button');
                 clicked = !clicked;
             }
-        });
-
-        linkedListAnimatiobButton.click(() => {
-            $('.pop-up').addClass('display-block');
-            $('body').addClass('no-scroll');
-            $('html').addClass('no-scroll');
-            $.get("lists/linked-list/linked_list_basic_animation.html", function(data) {
-                $(".pop-up-content").append(data);
-            });
         });
 
         $('.fa-xmark').click(() => {
@@ -371,5 +396,7 @@ $(document).ready(async() => {
             mainBodyDownOut();
         }
     });
+
+
 
 });

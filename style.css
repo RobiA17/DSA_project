@@ -17,7 +17,7 @@ button {
 
 body {
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-    background-size: 400% 400%;
+    background-size: 100% 1000%;
     animation: gradient 15s ease infinite;
     height: 100vh;
     text-align: center;
@@ -433,7 +433,9 @@ body {
 .right-button,
 .menu-button,
 .learn-button,
-#animation-page button {
+#animation-page button,
+.stop,
+.start {
     border: .2em solid white;
     padding: 0em 1.2em 0em 1.2em;
     margin: 0em 3em;
@@ -449,7 +451,10 @@ body {
 .left-button::before,
 .right-button::before,
 .menu-button::before,
-#animation-page button::before {
+#animation-page button::before,
+.stop::before,
+.start::before,
+.learn-button::before {
     content: "";
     position: absolute;
     background-color: #fff;
@@ -474,7 +479,10 @@ body {
 .left-button:hover::before,
 .right-button:hover::before,
 .menu-button:hover::before,
-#animation-page button:hover::before {
+#animation-page button:hover::before,
+.stop:hover::before,
+.start:hover::before,
+.learn-button:hover::before {
     width: 102%;
     opacity: 1;
 }
@@ -518,7 +526,10 @@ body {
 .left-button:hover,
 .right-button:hover,
 .menu-button:hover,
-#animation-page button:hover {
+#animation-page button:hover,
+.start:hover,
+.stop:hover,
+.learn-button:hover {
     transition: .75s ease-in;
     color: black;
     background-color: white;
@@ -632,9 +643,9 @@ body {
 
 .button-container {
     display: flex;
-    align-items: center;
+    align-items: center !important;
     gap: 2em;
-    justify-content: center;
+    justify-content: center !important;
     margin-top: 3em;
 }
 
@@ -661,35 +672,6 @@ body {
 }
 
 
-/* pop up window */
-
-.pop-up {
-    display: none;
-    /* width: 30em;
-    height: 20em; */
-    position: fixed;
-    top: 5%;
-    bottom: 5%;
-    left: 2%;
-    right: 2%;
-    z-index: 1000;
-    padding: 5em;
-}
-
-.display-block {
-    display: block !important;
-}
-
-.no-scroll {
-    height: 100% !important;
-    overflow: hidden !important;
-}
-
-code {
-    font-size: 2em;
-}
-
-
 /* ANIMATION PAGE */
 
 #animation-page h1 {
@@ -702,6 +684,232 @@ code {
     opacity: 1 !important;
 }
 
+
+/* pop up window */
+
+.pop-up {
+    display: none;
+    /* width: 30em;
+    height: 20em; */
+    position: fixed;
+    top: 5%;
+    bottom: 5%;
+    left: 2%;
+    right: 2%;
+    z-index: 1000;
+    padding: 5em 6em;
+    transition: display ease-in;
+}
+
+.display-block {
+    display: block !important;
+}
+
+.no-scroll {
+    height: 100% !important;
+    overflow: hidden !important;
+}
+
+.anmimation-title {
+    margin: 0em 0em 7em 0em;
+}
+
+.node-with-title {
+    display: flex;
+    flex-direction: column;
+}
+
+.node-with-arrow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.node-title h2 {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+.start,
+.stop {
+    opacity: 1;
+    position: relative;
+}
+
+.animation-buttons {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .animation-button-contaienr div {
     margin: 5em 0em;
+}
+
+.node {
+    border: #fff 1px solid;
+    border-radius: 1.2em;
+    background-color: rgba(255, 255, 255, 0.150);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    font-size: 1.2em;
+    padding: 0em 1em;
+}
+
+.node-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.node-container i {
+    font-size: 2em;
+    width: 2em;
+}
+
+.divider {
+    height: 4em;
+    width: .1em;
+    background-color: #fff;
+    border-radius: 100%;
+}
+
+.step-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.panel {
+    background-color: rgba(255, 255, 255, 0.15);
+    /*rgba(255, 255, 255, 0.377);*/
+    border: #fff solid 1px;
+    border-radius: 3em;
+    display: flex;
+    flex-direction: row;
+    padding: 1.5em 2em 5em 2em;
+    gap: 2em;
+    font-size: 1.5em;
+}
+
+.head {
+    /* border-color: rgb(0, 0, 0); */
+    border-width: 3px;
+}
+
+#linked-list-animation h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+.bigger {
+    font-size: 2em;
+}
+
+.learn-container .button-container .learn-button {
+    transform: translateX(0%) !important;
+}
+
+
+/* ANIMATIONS */
+
+
+/* LINKED LIST ANIMATION */
+
+
+/* INSERT A NODE */
+
+.pop-up-content {
+    height: -webkit-fill-available;
+    position: relative;
+}
+
+.node-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%);
+    transform: translateX(-50%);
+}
+
+.NULL {
+    font-size: 2em;
+    transform: translateX(-220%);
+    animation: hide 1s 2s forwards, move 1s 4s forwards, appear 1s 4.5s forwards;
+}
+
+.node-to-be-added {
+    opacity: 0;
+    animation: adding-node 3s 3s forwards;
+}
+
+@keyframes adding-node {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes hide {
+    10% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes move {
+    10% {
+        transform: translateX(-220%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes appear {
+    10% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.learn-button {
+    position: relative;
+}
+
+.restart-button {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    cursor: pointer;
+    font-size: 2em;
+    color: white;
+    transition: color 200ms ease-in;
+}
+
+.restart-button:hover {
+    color: black;
+}
+
+.head-container {
+    font-size: 2em;
+    margin: 0em .5em;
+}
+
+.pop-up h1 {
+    font-size: 3em;
 }
