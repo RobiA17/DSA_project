@@ -570,7 +570,7 @@ body {
 .menu-exit-button {
     position: absolute;
     top: 1.8em;
-    left: 1.2em;
+    right: 1.6em;
     border: none;
     background-color: transparent;
     font-size: 1.8em;
@@ -834,12 +834,15 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translateY(-50%);
-    transform: translateX(-50%);
+    transform: translateY(-50%) !important;
+    transform: translateX(-50%) !important;
 }
 
 .NULL {
     font-size: 2em;
+}
+
+.first-animation .NULL {
     transform: translateX(-220%);
     animation: hide 1s 2s forwards, move 1s 4s forwards, appear 1s 4.5s forwards;
 }
@@ -912,4 +915,55 @@ body {
 
 .pop-up h1 {
     font-size: 3em;
+}
+
+
+/* INSERT NEW HEAD */
+
+.nodes-to-push-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-40%);
+    animation: move-right 1s 3s ease-in forwards;
+}
+
+.new-head {
+    opacity: 0;
+    animation: appear 1s 4s ease-in forwards;
+}
+
+.new-head .node {
+    animation: add-border 1s 5s ease-in forwards;
+}
+
+.second-animation .head {
+    animation: no-border .5s 2s ease-out forwards;
+}
+
+@keyframes no-border {
+    from {
+        border-width: 3px;
+    }
+    to {
+        border-width: 1px;
+    }
+}
+
+@keyframes add-border {
+    from {
+        border-width: 1px;
+    }
+    to {
+        border-width: 3px;
+    }
+}
+
+@keyframes move-right {
+    from {
+        transform: translateX(-40%);
+    }
+    to {
+        transform: translateX(0%);
+    }
 }

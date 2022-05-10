@@ -114,7 +114,7 @@ $(document).ready(async() => {
         });
 
         linkedSecond.click(() => {
-            initPopUp("lists/linked-list/insert_a_new_node_animation.html", ".first-animation");
+            initPopUp("lists/linked-list/insert_a_new_head_animation.html", ".second-animation");
         });
     }
 
