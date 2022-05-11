@@ -938,7 +938,7 @@ body {
 }
 
 .step-4 {
-    animation: step-shake 1s 14s 2 ease-in;
+    animation: step-shake 1s 13.5s 2 ease-in;
 }
 
 .empty-text {
@@ -1110,4 +1110,36 @@ body {
 
 .third-animation .node-to-be-added {
     animation: adding-node 3s 11s;
+}
+
+
+/* REMOVE THE HEAD */
+
+.fourth-animation .NULL {
+    animation: null-first 1s 4s alternate, null-second 2s 6s alternate, null-third 2s 9s alternate, appear 2s 12s alternate, null-third 1s 15s forwards;
+}
+
+.fourth-animation .first-appear {
+    animation: appear 1s 5s forwards, hide 1s 13s forwards;
+}
+
+.fourth-animation .second-appear {
+    animation: appear 1s 8s forwards, move-left-new-head 1s 14s forwards, add-border 1s 14.5s forwards;
+}
+
+.fourth-animation .second-appear .node {
+    animation: add-border 1s 14.5s forwards;
+}
+
+.fourth-animation .node-to-be-added {
+    animation: adding-node 3s 11s forwards, move-left-new-head 1s 14s forwards;
+}
+
+@keyframes move-left-new-head {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
 }
