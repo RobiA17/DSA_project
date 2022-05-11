@@ -89,8 +89,8 @@ $(document).ready(async() => {
 
     async function initPopUp(animationLocation, animationName) {
         $('.pop-up').addClass('display-block');
-        $('body').addClass('no-scroll');
-        $('html').addClass('no-scroll');
+        // $('body').addClass('no-scroll');
+        // $('html').addClass('no-scroll');
 
         await $.get(animationLocation, function(data) {
             $(".pop-up-content").append(data);

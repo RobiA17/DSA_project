@@ -839,17 +839,13 @@ body {
 }
 
 .NULL {
+    opacity: 0;
     font-size: 2em;
-}
-
-.first-animation .NULL {
-    transform: translateX(-220%);
-    animation: hide 1s 2s forwards, move 1s 4s forwards, appear 1s 4.5s forwards;
 }
 
 .node-to-be-added {
     opacity: 0;
-    animation: adding-node 3s 3s forwards;
+    animation: adding-node 3s 11s forwards;
 }
 
 @keyframes adding-node {
@@ -915,6 +911,115 @@ body {
 
 .pop-up h1 {
     font-size: 3em;
+}
+
+.pop-up p {
+    font-size: 1.5em;
+}
+
+.step-1,
+.step-2,
+.step-3 {
+    font-size: 1.5em;
+}
+
+.step-1 {
+    animation: step-shake 2s 3s 2 alternate ease-in;
+}
+
+.step-2 {
+    animation: step-shake 2s 8s alternate ease-in;
+}
+
+.step-3 {
+    animation: step-shake 2s 11s alternate ease-in;
+}
+
+.empty-text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%);
+}
+
+.head-container,
+.first-appear,
+.second-appear,
+.node-to-be-added {
+    opacity: 0;
+}
+
+.empty-text {
+    animation: empty-text 1s 2s forwards;
+}
+
+.head-container {
+    animation: appear 1s 3s forwards;
+}
+
+.first-animation .NULL {
+    animation: null-first 1s 4s alternate, null-second 2s 6s alternate, null-third 2s 9s alternate, appear 1s 12s forwards;
+}
+
+.second-appear {
+    animation: appear 1s 8s forwards;
+}
+
+@keyframes null-first {
+    from {
+        transform: translateX(-670%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(-670%);
+        opacity: 1;
+    }
+}
+
+@keyframes null-second {
+    from {
+        transform: translateX(-460%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(-460%);
+        opacity: 1;
+    }
+}
+
+@keyframes null-third {
+    from {
+        transform: translateX(-240%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(-240%);
+        opacity: 1;
+    }
+}
+
+.first-appear {
+    animation: appear 1s 5s forwards;
+}
+
+@keyframes empty-text {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes step-shake {
+    from {
+        font-weight: bold;
+        font-size: inherit;
+    }
+    to {
+        font-weight: bold;
+        font-size: 1.2em;
+    }
 }
 
 
