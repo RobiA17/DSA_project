@@ -966,6 +966,34 @@ body {
     animation: appear 1s 8s forwards;
 }
 
+.first-appear {
+    animation: appear 1s 5s forwards;
+}
+
+@keyframes empty-text {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes step-shake {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+    1% {
+        display: block;
+        opacity: 0;
+    }
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
 @keyframes null-first {
     from {
         transform: translateX(-670%);
@@ -999,32 +1027,8 @@ body {
     }
 }
 
-.first-appear {
-    animation: appear 1s 5s forwards;
-}
-
-@keyframes empty-text {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
-}
-
-@keyframes step-shake {
-    0% {
-        display: none;
-        opacity: 0;
-    }
-    1% {
-        display: block;
-        opacity: 0;
-    }
-    100% {
-        display: block;
-        opacity: 1;
-    }
+.fa-circle-play {
+    font-size: .8em;
 }
 
 
@@ -1034,21 +1038,35 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: translateX(-40%);
-    animation: move-right 1s 3s ease-in forwards;
+    transform: translateX(-50%);
+    animation: move-right 1s 11s ease-in forwards;
+}
+
+.nodes-to-push-right .old-head {
+    opacity: 0;
+    animation: appear 1s 5s ease-in forwards;
+}
+
+.nodes-to-push-right .old-head .node {
+    animation: no-border 1s 12s ease-out forwards;
+}
+
+.node-to-appear {
+    opacity: 0;
+    animation: appear 1s 8s ease-in forwards;
 }
 
 .new-head {
     opacity: 0;
-    animation: appear 1s 4s ease-in forwards;
+    animation: appear 1s 12s ease-in forwards;
 }
 
 .new-head .node {
-    animation: add-border 1s 5s ease-in forwards;
+    animation: add-border 1s 13s ease-in forwards;
 }
 
-.second-animation .head {
-    animation: no-border .5s 2s ease-out forwards;
+.second-animation .NULL {
+    animation: null-first 1s 4s alternate, null-second 2s 6s alternate, null-third 2s 9s alternate, appear 1s 12s forwards;
 }
 
 @keyframes no-border {
@@ -1071,7 +1089,7 @@ body {
 
 @keyframes move-right {
     from {
-        transform: translateX(-40%);
+        transform: translateX(-50%);
     }
     to {
         transform: translateX(0%);

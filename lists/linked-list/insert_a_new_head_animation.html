@@ -1,11 +1,22 @@
-<h1>Linekd list insert new head</h1>
+<h1>Linked list insert new head</h1>
 
 <h2>
     When you want to insert a new head you need to be very coatious not to lose your head :)). You need to be carefull to set the new head's next property to the old head. As you can see in the animation down below:
 </h2>
 
 <section class="second-animation">
+    <p>
+        Steps:
+        <section class="step-1">Initialize list (insert the first head)</section>
+        <section class="step-2">Insert a new node to the end</section>
+        <section class="step-3">Insert a new head</section>
+    </p>
     <div class="node-container">
+
+        <h2 class="empty-text">
+            The list is empty...
+        </h2>
+
         <div class="head-container">
             Head:
         </div>
@@ -22,7 +33,7 @@
             <i class="fa-solid fa-right-long"></i>
         </div>
         <section class="nodes-to-push-right">
-            <div class="node-with-arrow">
+            <div class="node-with-arrow old-head">
                 <div class="head node">
                     <section class="linked-list-data">
                         13
@@ -35,7 +46,7 @@
                 <i class="fa-solid fa-right-long"></i>
             </div>
 
-            <div class="node-with-arrow">
+            <div class="node-with-arrow node-to-appear">
                 <div class="node">
                     <section class="linked-list-data">
                         13
@@ -47,11 +58,10 @@
                 </div>
                 <i class="fa-solid fa-right-long"></i>
             </div>
-
-            <div class="NULL">
-                NULL
-            </div>
         </section>
+        <div class="NULL">
+            NULL
+        </div>
     </div>
 </section>
 
