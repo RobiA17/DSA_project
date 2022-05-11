@@ -108,6 +108,7 @@ $(document).ready(async() => {
     function initDropDownInfo() {
         var linkedFirst = $(".linked-first-animation");
         var linkedSecond = $(".linked-second-animation");
+        var linkedThird = $(".linked-third-animation");
 
         linkedFirst.click(() => {
             initPopUp("lists/linked-list/insert_a_new_node_animation.html", ".first-animation");
@@ -115,6 +116,10 @@ $(document).ready(async() => {
 
         linkedSecond.click(() => {
             initPopUp("lists/linked-list/insert_a_new_head_animation.html", ".second-animation");
+        });
+
+        linkedThird.click(() => {
+            initPopUp("lists/linked-list/remove_last_node.html", ".third-animation");
         });
     }
 

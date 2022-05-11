@@ -919,7 +919,8 @@ body {
 
 .step-1,
 .step-2,
-.step-3 {
+.step-3,
+.step-4 {
     opacity: 1;
     font-size: 1.5em;
 }
@@ -934,6 +935,10 @@ body {
 
 .step-3 {
     animation: step-shake 1s 11s 2 ease-in;
+}
+
+.step-4 {
+    animation: step-shake 1s 14s 2 ease-in;
 }
 
 .empty-text {
@@ -1094,4 +1099,15 @@ body {
     to {
         transform: translateX(0%);
     }
+}
+
+
+/* REMOVE LAST NODE */
+
+.third-animation .NULL {
+    animation: null-first 1s 4s alternate, null-second 2s 6s alternate, null-third 2s 9s alternate, appear 2s 12s alternate, null-third 1s 15s forwards;
+}
+
+.third-animation .node-to-be-added {
+    animation: adding-node 3s 11s;
 }
