@@ -1,4 +1,4 @@
-    html {
+html {
     overflow-x: hidden;
 }
 
@@ -1025,45 +1025,55 @@ body {
         display: block;
         opacity: 1;
     }
-    /* INSERT NEW HEAD */
-    .nodes-to-push-right {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+}
+
+
+/* INSERT NEW HEAD */
+
+.nodes-to-push-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-40%);
+    animation: move-right 1s 3s ease-in forwards;
+}
+
+.new-head {
+    opacity: 0;
+    animation: appear 1s 4s ease-in forwards;
+}
+
+.new-head .node {
+    animation: add-border 1s 5s ease-in forwards;
+}
+
+.second-animation .head {
+    animation: no-border .5s 2s ease-out forwards;
+}
+
+@keyframes no-border {
+    from {
+        border-width: 3px;
+    }
+    to {
+        border-width: 1px;
+    }
+}
+
+@keyframes add-border {
+    from {
+        border-width: 1px;
+    }
+    to {
+        border-width: 3px;
+    }
+}
+
+@keyframes move-right {
+    from {
         transform: translateX(-40%);
-        animation: move-right 1s 3s ease-in forwards;
     }
-    .new-head {
-        opacity: 0;
-        animation: appear 1s 4s ease-in forwards;
+    to {
+        transform: translateX(0%);
     }
-    .new-head .node {
-        animation: add-border 1s 5s ease-in forwards;
-    }
-    .second-animation .head {
-        animation: no-border .5s 2s ease-out forwards;
-    }
-    @keyframes no-border {
-        from {
-            border-width: 3px;
-        }
-        to {
-            border-width: 1px;
-        }
-    }
-    @keyframes add-border {
-        from {
-            border-width: 1px;
-        }
-        to {
-            border-width: 3px;
-        }
-    }
-    @keyframes move-right {
-        from {
-            transform: translateX(-40%);
-        }
-        to {
-            transform: translateX(0%);
-        }
-    }
+}
