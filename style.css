@@ -17,7 +17,7 @@ button {
 
 body {
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-    background-size: 100% 1000%;
+    background-size: 100% 1150%;
     animation: gradient 15s ease infinite;
     height: 100vh;
     text-align: center;
@@ -467,7 +467,6 @@ body {
     z-index: -1;
     opacity: 0;
     transform: translateX(-1%);
-    /* transform: translateY(-2%); */
     overflow-x: hidden;
     overflow-y: hidden;
 }
@@ -556,7 +555,7 @@ body {
     justify-content: center;
     gap: 5em;
     flex-direction: column;
-    right: 70%;
+    right: 65em;
     height: 100%;
     top: 0;
     left: 0;
@@ -692,12 +691,12 @@ body {
     /* width: 30em;
     height: 20em; */
     position: fixed;
-    top: 5%;
-    bottom: 5%;
-    left: 2%;
-    right: 2%;
+    top: 5em;
+    bottom: 5em;
+    left: 5em;
+    right: 5em;
     z-index: 1000;
-    padding: 5em 6em;
+    padding: 3em 6em;
     transition: display ease-in;
 }
 
@@ -730,15 +729,9 @@ body {
     margin-bottom: 0px;
 }
 
-.start,
-.stop {
-    opacity: 1;
-    position: relative;
-}
-
 .animation-buttons {
     position: absolute;
-    bottom: 10%;
+    bottom: 10em;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -832,9 +825,8 @@ body {
 
 .node-container {
     position: absolute;
-    top: 50%;
+    top: 25em;
     left: 50%;
-    transform: translateY(-50%) !important;
     transform: translateX(-50%) !important;
 }
 
@@ -890,10 +882,9 @@ body {
 
 .restart-button {
     position: absolute;
-    bottom: 5%;
+    bottom: 2.5em;
     left: 50%;
-    transform: translateX(-50%);
-    margin: 0;
+    margin: 0 auto;
     cursor: pointer;
     font-size: 2em;
     color: white;
@@ -901,7 +892,16 @@ body {
 }
 
 .restart-button:hover {
-    color: black;
+    animation: rotate 1s infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(180deg);
+    }
 }
 
 .head-container {
@@ -1124,7 +1124,7 @@ body {
 }
 
 .fourth-animation .second-appear {
-    animation: appear 1s 8s forwards, move-left-new-head 1s 14s forwards, add-border 1s 14.5s forwards;
+    animation: appear 1s 8s forwards, move-left 1s 14s forwards, add-border 1s 14.5s forwards;
 }
 
 .fourth-animation .second-appear .node {
@@ -1132,14 +1132,18 @@ body {
 }
 
 .fourth-animation .node-to-be-added {
-    animation: adding-node 3s 11s forwards, move-left-new-head 1s 14s forwards;
+    animation: adding-node 3s 11s forwards, move-left 1s 14s forwards;
 }
 
-@keyframes move-left-new-head {
+@keyframes move-left {
     from {
         transform: translateX(0%);
     }
     to {
         transform: translateX(-100%);
     }
+}
+
+.linked-lists h2 {
+    font-weight: 500 !important;
 }

@@ -130,23 +130,72 @@ $(document).ready(async() => {
 
     function initLearnPage() {
         learnContainer = $(".learn-container");
-        var clicked = false;
+        var clickedLinked = false;
+        var clickedDLinked = false;
+        var clickedCLinked = false;
+        var clickedDCLinked = false;
         var linkedListInfoButton = $("#linked-list-info-button");
-        var linkedListAnimatiobButton = $("#linked-list-animation-button");
+        var doublyLinkedListInfoButton = $("#doubly-linked-list-info-button");
+        var circularLinkedListInfoButton = $("#circular-linked-list-info-button");
+        var circularDoublyLinkedListInfoButton = $("#circular-doubly-linked-list-info-button");
 
         linkedListInfoButton.click(async() => {
-
-            if (!clicked) {
+            if (!clickedLinked) {
                 await $.get("lists/linked-list/linked_list.html", function(data) {
                     $("#linked-desc").append(data);
                 });
                 downButtonToUp('#linked-list-info-button');
                 initDropDownInfo();
-                clicked = !clicked;
+                clickedLinked = !clickedLinked;
             } else {
                 $("#linked-desc").empty();
                 upButtonToDown('#linked-list-info-button');
-                clicked = !clicked;
+                clickedLinked = !clickedLinked;
+            }
+        });
+
+        doublyLinkedListInfoButton.click(async() => {
+            if (!clickedDLinked) {
+                await $.get("lists/doubly-linked-list/doubly_linked_list.html", function(data) {
+                    $("#doubly-linked-desc").append(data);
+                });
+                downButtonToUp('#doubly-linked-list-info-button');
+                initDropDownInfo();
+                clickedDLinked = !clickedDLinked;
+            } else {
+                $("#doubly-linked-desc").empty();
+                upButtonToDown('#doubly-linked-list-info-button');
+                clickedDLinked = !clickedDLinked;
+            }
+        });
+
+        circularLinkedListInfoButton.click(async() => {
+            if (!clickedCLinked) {
+                await $.get("lists/circular-linked-list/circular_linked_list.html", function(data) {
+                    $("#circular-linked-desc").append(data);
+                });
+                downButtonToUp('#circular-linked-list-info-button');
+                initDropDownInfo();
+                clickedCLinked = !clickedCLinked;
+            } else {
+                $("#circular-linked-desc").empty();
+                upButtonToDown('#circular-linked-list-info-button');
+                clickedCLinked = !clickedCLinked;
+            }
+        });
+
+        circularDoublyLinkedListInfoButton.click(async() => {
+            if (!clickedDCLinked) {
+                await $.get("lists/circular-doubly-linked-list/circular_doubly_linked_list.html", function(data) {
+                    $("#circular-doubly-linked-desc").append(data);
+                });
+                downButtonToUp('#circular-doubly-linked-list-info-button');
+                initDropDownInfo();
+                clickedDCLinked = !clickedDCLinked;
+            } else {
+                $("#circular-doubly-linked-desc").empty();
+                upButtonToDown('#circular-doubly-linked-list-info-button');
+                clickedDCLinked = !clickedDCLinked;
             }
         });
 
