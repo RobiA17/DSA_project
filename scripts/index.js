@@ -90,7 +90,7 @@ $(document).ready(async() => {
     async function initPopUp(animationLocation, animationName) {
         $('.pop-up').addClass('display-block');
         // $('body').addClass('no-scroll');
-        // $('html').addClass('no-scroll');
+        $('html').addClass('no-scroll');
 
         await $.get(animationLocation, function(data) {
             $(".pop-up-content").append(data);
@@ -105,7 +105,83 @@ $(document).ready(async() => {
         });
     }
 
-    function initDropDownInfo() {
+    function scrollToLearn(to) {
+        window.scrollTo({
+            top: $(to).offset().top,
+            behavior: 'smooth'
+        });
+    }
+
+    function initLinkedDropDownInfo() {
+        var linkedFirst = $("#linked-desc .linked-first-animation");
+        var linkedSecond = $("#linked-desc .linked-second-animation");
+        var linkedThird = $("#linked-desc .linked-third-animation");
+        var linkedFourth = $("#linked-desc .linked-fourth-animation");
+
+        linkedFirst.click(() => {
+            initPopUp("lists/linked-list/insert_a_new_node_animation.html", ".first-animation");
+        });
+
+        linkedSecond.click(() => {
+            initPopUp("lists/linked-list/insert_a_new_head_animation.html", ".second-animation");
+        });
+
+        linkedThird.click(() => {
+            initPopUp("lists/linked-list/remove_last_node.html", ".third-animation");
+        });
+
+        linkedFourth.click(() => {
+            initPopUp("lists/linked-list/remove_head.html", ".fourth-animation");
+        });
+    }
+
+    function initDoublyLinkedDropDownInfo() {
+        var linkedFirst = $("#doubly-linked-desc .linked-first-animation");
+        var linkedSecond = $("#doubly-linked-desc .linked-second-animation");
+        var linkedThird = $("#doubly-linked-desc .linked-third-animation");
+        var linkedFourth = $("#doubly-linked-desc .linked-fourth-animation");
+
+        linkedFirst.click(() => {
+            initPopUp("lists/doubly-linked-list/insert_a_new_node_animation.html", ".first-animation");
+        });
+
+        linkedSecond.click(() => {
+            initPopUp("lists/doubly-linked-list/insert_a_new_head_animation.html", ".second-animation");
+        });
+
+        linkedThird.click(() => {
+            initPopUp("lists/doubly-linked-list/remove_last_node.html", ".third-animation");
+        });
+
+        linkedFourth.click(() => {
+            initPopUp("lists/linked-list/remove_head.html", ".fourth-animation");
+        });
+    }
+
+    function initCircularLinkedDropDownInfo() {
+        var linkedFirst = $(".linked-first-animation");
+        var linkedSecond = $(".linked-second-animation");
+        var linkedThird = $(".linked-third-animation");
+        var linkedFourth = $(".linked-fourth-animation");
+
+        linkedFirst.click(() => {
+            initPopUp("lists/linked-list/insert_a_new_node_animation.html", ".first-animation");
+        });
+
+        linkedSecond.click(() => {
+            initPopUp("lists/linked-list/insert_a_new_head_animation.html", ".second-animation");
+        });
+
+        linkedThird.click(() => {
+            initPopUp("lists/linked-list/remove_last_node.html", ".third-animation");
+        });
+
+        linkedFourth.click(() => {
+            initPopUp("lists/linked-list/remove_head.html", ".fourth-animation");
+        });
+    }
+
+    function initDoublyCircularLinkedDropDownInfo() {
         var linkedFirst = $(".linked-first-animation");
         var linkedSecond = $(".linked-second-animation");
         var linkedThird = $(".linked-third-animation");
@@ -145,13 +221,14 @@ $(document).ready(async() => {
                     $("#linked-desc").append(data);
                 });
                 downButtonToUp('#linked-list-info-button');
-                initDropDownInfo();
+                initLinkedDropDownInfo();
                 clickedLinked = !clickedLinked;
             } else {
                 $("#linked-desc").empty();
                 upButtonToDown('#linked-list-info-button');
                 clickedLinked = !clickedLinked;
             }
+            scrollToLearn('#linked-list-container');
         });
 
         doublyLinkedListInfoButton.click(async() => {
@@ -160,13 +237,14 @@ $(document).ready(async() => {
                     $("#doubly-linked-desc").append(data);
                 });
                 downButtonToUp('#doubly-linked-list-info-button');
-                initDropDownInfo();
+                initDoublyLinkedDropDownInfo();
                 clickedDLinked = !clickedDLinked;
             } else {
                 $("#doubly-linked-desc").empty();
                 upButtonToDown('#doubly-linked-list-info-button');
                 clickedDLinked = !clickedDLinked;
             }
+            scrollToLearn('#doubly-linked-list-container');
         });
 
         circularLinkedListInfoButton.click(async() => {
@@ -175,13 +253,14 @@ $(document).ready(async() => {
                     $("#circular-linked-desc").append(data);
                 });
                 downButtonToUp('#circular-linked-list-info-button');
-                initDropDownInfo();
+                initCircularLinkedDropDownInfo();
                 clickedCLinked = !clickedCLinked;
             } else {
                 $("#circular-linked-desc").empty();
                 upButtonToDown('#circular-linked-list-info-button');
                 clickedCLinked = !clickedCLinked;
             }
+            scrollToLearn('#circular-linked-list-container');
         });
 
         circularDoublyLinkedListInfoButton.click(async() => {
@@ -190,13 +269,14 @@ $(document).ready(async() => {
                     $("#circular-doubly-linked-desc").append(data);
                 });
                 downButtonToUp('#circular-doubly-linked-list-info-button');
-                initDropDownInfo();
+                initDoublyCircularLinkedDropDownInfo();
                 clickedDCLinked = !clickedDCLinked;
             } else {
                 $("#circular-doubly-linked-desc").empty();
                 upButtonToDown('#circular-doubly-linked-list-info-button');
                 clickedDCLinked = !clickedDCLinked;
             }
+            scrollToLearn('#circular-doubly-linked-list-container');
         });
 
         $('.fa-xmark').click(() => {
@@ -308,10 +388,6 @@ $(document).ready(async() => {
                 });
             }, 100
         );
-    }
-
-    function mainBodyToRightIn() {
-        body.addClass("main-body-right-in");
     }
 
     function mainBodyToLeftIn() {
@@ -455,7 +531,4 @@ $(document).ready(async() => {
             mainBodyDownOut();
         }
     });
-
-
-
 });

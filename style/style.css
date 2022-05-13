@@ -532,6 +532,7 @@ body {
     transition: .75s ease-in;
     color: black;
     background-color: white;
+    box-shadow: 0px 0px 30px 13px rgb(255 255 255 / 79%);
 }
 
 
@@ -633,6 +634,7 @@ body {
 
 .learn-description {
     font-size: 1.5em !important;
+    font-weight: bold !important;
 }
 
 .learn-button {
@@ -660,7 +662,7 @@ body {
     margin: 2em 0em 5em 0em;
 }
 
-.linked-lists li {
+.learn-container li {
     cursor: pointer;
     width: fit-content;
 }
@@ -1001,33 +1003,33 @@ body {
 
 @keyframes null-first {
     from {
-        transform: translateX(-670%);
+        transform: translateX(-16.5em);
         opacity: 0;
     }
     to {
-        transform: translateX(-670%);
+        transform: translateX(-16.5em);
         opacity: 1;
     }
 }
 
 @keyframes null-second {
     from {
-        transform: translateX(-460%);
+        transform: translateX(-11em);
         opacity: 0;
     }
     to {
-        transform: translateX(-460%);
+        transform: translateX(-11em);
         opacity: 1;
     }
 }
 
 @keyframes null-third {
     from {
-        transform: translateX(-240%);
+        transform: translateX(-5.5em);
         opacity: 0;
     }
     to {
-        transform: translateX(-240%);
+        transform: translateX(-5.5em);
         opacity: 1;
     }
 }
@@ -1043,7 +1045,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: translateX(-50%);
+    transform: translateX(-10.5em);
     animation: move-right 1s 11s ease-in forwards;
 }
 
@@ -1094,7 +1096,7 @@ body {
 
 @keyframes move-right {
     from {
-        transform: translateX(-50%);
+        transform: translateX(-10.5em);
     }
     to {
         transform: translateX(0%);
@@ -1144,6 +1146,115 @@ body {
     }
 }
 
-.linked-lists h2 {
-    font-weight: 500 !important;
+.learn-container h2 {
+    font-weight: 500;
 }
+
+
+/* DOUBLY LINKED */
+
+
+/* INSERT A NEW NODE */
+
+.HEAD-NULL {
+    font-size: 2em;
+}
+
+#doubly-linked-pop-up .first-animation .NULL {
+    animation: doubly-null-first 1s 4s alternate, doubly-null-second 2s 6s alternate, doubly-null-third 2s 9s alternate, appear 1s 12s forwards;
+}
+
+@keyframes doubly-null-first {
+    from {
+        transform: translateX(-25.5em);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(-25.5em);
+        opacity: 1;
+    }
+}
+
+@keyframes doubly-null-second {
+    from {
+        transform: translateX(-13.5em);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(-13.5em);
+        opacity: 1;
+    }
+}
+
+@keyframes doubly-null-third {
+    from {
+        transform: translateX(-6.5em);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(-6.5em);
+        opacity: 1;
+    }
+}
+
+
+/* INSERT A NEW HEAD */
+
+.old-head .HEAD-NULL,
+.old-head .fa-left-long {
+    animation: hide 1s 12s forwards;
+}
+
+#doubly-linked-pop-up .nodes-to-push-right {
+    transform: translateX(-23.5em);
+    animation: doubly-move-right 1s 12s forwards;
+}
+
+.nodes-to-push-right .NULL {
+    animation: doubly-new-head-null-first 1s 4s alternate, doubly-new-head-null-second 2s 6s alternate, doubly-new-head-null-third 2s 9s alternate, appear 1s 12s forwards;
+}
+
+@keyframes doubly-new-head-null-first {
+    from {
+        transform: translateX(-18.5em);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(-18.5em);
+        opacity: 1;
+    }
+}
+
+@keyframes doubly-new-head-null-second {
+    from {
+        transform: translateX(-6.5em);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(-6.5em);
+        opacity: 1;
+    }
+}
+
+@keyframes doubly-new-head-null-third {
+    from {
+        transform: translateX(0%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes doubly-move-right {
+    from {
+        transform: translateX(-28em);
+    }
+    to {
+        transform: translateX(-10em);
+    }
+}
+
+
+/* REMOVE LAST NODE */
