@@ -1258,3 +1258,85 @@ body {
 
 
 /* REMOVE LAST NODE */
+
+.doubly-remove-last {
+    animation: doubly-remove-last-null-first 1s 4s alternate, doubly-remove-last-null-second 2s 6s alternate, doubly-remove-last-null-third 2s 9s alternate, appear 1s 12s forwards, doubly-remove-last-null-third 1s 14s forwards !important;
+}
+
+@keyframes doubly-remove-last-null-first {
+    from {
+        transform: translateX(-25.5em);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(-25.5em);
+        opacity: 1;
+    }
+}
+
+@keyframes doubly-remove-last-null-second {
+    from {
+        transform: translateX(-13.5em);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(-13.5em);
+        opacity: 1;
+    }
+}
+
+@keyframes doubly-remove-last-null-third {
+    from {
+        transform: translateX(-6.5em);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(-6.5em);
+        opacity: 1;
+    }
+}
+
+.third-animation .node-container .fa-right-long {
+    transform: translateX(-11.8em);
+    opacity: 0;
+    animation: appear .5s 14s forwards;
+}
+
+.third-animation .node-container .second-appear .fa-arrow-right-arrow-left {
+    animation: hide .5s 14s forwards;
+}
+
+
+/* REMOVE THE HEAD */
+
+.doubly-linked-pop-up .fourth-animation .NULL {
+    animation: doubly-remove-head-null-first 1s 4s alternate, doubly-remove-last-null-second 2s 6s alternate, doubly-remove-last-null-third 2s 9s alternate, appear 2s 12s alternate, remove-head-null 1s 15s forwards;
+}
+
+.fourth-animation .second-appear {
+    animation: appear 1s 8s forwards, doubly-move-left 1s 14s forwards, add-border 1s 14.5s forwards;
+}
+
+.fourth-animation .node-to-be-added {
+    animation: adding-node 3s 11s forwards, doubly-move-left 1s 14s forwards;
+}
+
+@keyframes doubly-move-left {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(-23.5em);
+    }
+}
+
+@keyframes remove-head-null {
+    from {
+        transform: translateX(-11.5em);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(-11.5em);
+        opacity: 1;
+    }
+}

@@ -154,7 +154,7 @@ $(document).ready(async() => {
         });
 
         linkedFourth.click(() => {
-            initPopUp("lists/linked-list/remove_head.html", ".fourth-animation");
+            initPopUp("lists/doubly-linked-list/remove_head.html", ".fourth-animation");
         });
     }
 
