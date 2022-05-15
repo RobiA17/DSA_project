@@ -159,25 +159,25 @@ $(document).ready(async() => {
     }
 
     function initCircularLinkedDropDownInfo() {
-        var linkedFirst = $(".linked-first-animation");
-        var linkedSecond = $(".linked-second-animation");
-        var linkedThird = $(".linked-third-animation");
-        var linkedFourth = $(".linked-fourth-animation");
+        var linkedFirst = $("#circular-linked-desc .linked-first-animation");
+        var linkedSecond = $("#circular-linked-desc .linked-second-animation");
+        var linkedThird = $("#circular-linked-desc .linked-third-animation");
+        var linkedFourth = $("#circular-linked-desc .linked-fourth-animation");
 
         linkedFirst.click(() => {
-            initPopUp("lists/linked-list/insert_a_new_node_animation.html", ".first-animation");
+            initPopUp("lists/circular-linked-list/insert_a_new_node_animation.html", ".first-animation");
         });
 
         linkedSecond.click(() => {
-            initPopUp("lists/linked-list/insert_a_new_head_animation.html", ".second-animation");
+            initPopUp("lists/circular-linked-list/insert_a_new_head_animation.html", ".second-animation");
         });
 
         linkedThird.click(() => {
-            initPopUp("lists/linked-list/remove_last_node.html", ".third-animation");
+            initPopUp("lists/circular-linked-list/remove_last_node.html", ".third-animation");
         });
 
         linkedFourth.click(() => {
-            initPopUp("lists/linked-list/remove_head.html", ".fourth-animation");
+            initPopUp("lists/circular-linked-list/remove_head.html", ".fourth-animation");
         });
     }
 

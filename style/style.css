@@ -1296,13 +1296,13 @@ body {
     }
 }
 
-.third-animation .node-container .fa-right-long {
+.doubly-linked-pop-up .third-animation .node-container .fa-right-long {
     transform: translateX(-11.8em);
     opacity: 0;
     animation: appear .5s 14s forwards;
 }
 
-.third-animation .node-container .second-appear .fa-arrow-right-arrow-left {
+.doubly-linked-pop-up .third-animation .node-container .second-appear .fa-arrow-right-arrow-left {
     animation: hide .5s 14s forwards;
 }
 
@@ -1313,11 +1313,11 @@ body {
     animation: doubly-remove-head-null-first 1s 4s alternate, doubly-remove-last-null-second 2s 6s alternate, doubly-remove-last-null-third 2s 9s alternate, appear 2s 12s alternate, remove-head-null 1s 15s forwards;
 }
 
-.fourth-animation .second-appear {
+.doubly-linked-pop-up .fourth-animation .second-appear {
     animation: appear 1s 8s forwards, doubly-move-left 1s 14s forwards, add-border 1s 14.5s forwards;
 }
 
-.fourth-animation .node-to-be-added {
+.doubly-linked-pop-up .fourth-animation .node-to-be-added {
     animation: adding-node 3s 11s forwards, doubly-move-left 1s 14s forwards;
 }
 
@@ -1338,5 +1338,139 @@ body {
     to {
         transform: translateX(-11.5em);
         opacity: 1;
+    }
+}
+
+
+/* CIRCULAR LINKED LIST */
+
+.circular-arrow {
+    opacity: 0;
+    position: absolute;
+    bottom: 9em;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: circular-first 1s 8s forwards;
+}
+
+.circular-arrow-container {
+    position: relative;
+}
+
+.line-down {
+    position: absolute;
+    right: -9.3px;
+    top: 0%;
+    background-color: white;
+    border-radius: 2em;
+    height: 2.3em;
+    width: 5px;
+}
+
+.arrow-up {
+    font-size: 2em;
+    text-align: left;
+    transform: translateX(-23px);
+    left: 0.6px;
+    top: 0%;
+}
+
+.center-line {
+    margin: -10px;
+    width: 13.2em;
+    height: 3em;
+    border: solid 5px #fff;
+    border-color: #fff transparent transparent transparent;
+    border-radius: 50%/100px 100px 0 0;
+    transform: rotate(180deg);
+    animation: line-first 1s 7s forwards, line-second 1.3s 11s ease-in-out forwards;
+}
+
+@keyframes circular-first {
+    from {
+        opacity: 0;
+        transform: translateX(-13em);
+    }
+    to {
+        transform: translateX(-13em);
+        opacity: 1;
+    }
+}
+
+@keyframes line-first {
+    from {
+        width: 13.2em;
+    }
+    to {
+        opacity: 13.2em;
+    }
+}
+
+@keyframes line-second {
+    from {
+        width: 13.5em;
+    }
+    to {
+        width: 24em;
+    }
+}
+
+
+/* INSERT NEW NODE / INSERT NEW HEAD */
+
+.circular-pop-up .NULL {
+    animation: null-first 1s 4s alternate, null-second 2s 6s;
+}
+
+.no-right {
+    opacity: 0;
+}
+
+
+/* REMOVE LAST NODE */
+
+.circular-pop-up .third-animation .center-line {
+    animation: line-first 1s 7s forwards, line-second 1.3s 11s ease-in-out forwards, remove-last-node-line 1.3s 13.7s ease-in-out forwards;
+}
+
+@keyframes remove-last-node-line {
+    from {
+        width: 24em;
+    }
+    to {
+        width: 13.5em;
+    }
+}
+
+
+/* REMOVE HEAD */
+
+.circular-pop-up .fourth-animation .node-to-be-added {
+    animation: adding-node 3s 11s forwards, circular-move-left 1s 14s forwards;
+}
+
+.circular-pop-up .fourth-animation .second-appear {
+    animation: appear 1s 8s forwards, circular-move-left 1s 14s forwards, add-border 1s 14.5s forwards;
+}
+
+.circular-pop-up .fourth-animation .center-line {
+    animation: line-first 1s 7s forwards, line-second 1.3s 11s ease-in-out forwards, remove-head-line 1.2s 13.7s ease-in-out forwards;
+}
+
+@keyframes remove-head-line {
+    from {
+        width: 24em;
+    }
+    to {
+        width: 13.2em;
+    }
+}
+
+@keyframes circular-move-left {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(-11.5em);
     }
 }
