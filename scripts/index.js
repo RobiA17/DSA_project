@@ -188,7 +188,7 @@ $(document).ready(async() => {
         var linkedFourth = $(".linked-fourth-animation");
 
         linkedFirst.click(() => {
-            initPopUp("lists/linked-list/insert_a_new_node_animation.html", ".first-animation");
+            initPopUp("lists/doubly-circular-linked-list/insert_a_new_node_animation.html", ".first-animation");
         });
 
         linkedSecond.click(() => {
@@ -213,7 +213,7 @@ $(document).ready(async() => {
         var linkedListInfoButton = $("#linked-list-info-button");
         var doublyLinkedListInfoButton = $("#doubly-linked-list-info-button");
         var circularLinkedListInfoButton = $("#circular-linked-list-info-button");
-        var circularDoublyLinkedListInfoButton = $("#circular-doubly-linked-list-info-button");
+        var doublyCircularLinkedListInfoButton = $("#circular-doubly-linked-list-info-button");
 
         linkedListInfoButton.click(async() => {
             if (!clickedLinked) {
@@ -263,9 +263,9 @@ $(document).ready(async() => {
             scrollToLearn('#circular-linked-list-container');
         });
 
-        circularDoublyLinkedListInfoButton.click(async() => {
+        doublyCircularLinkedListInfoButton.click(async() => {
             if (!clickedDCLinked) {
-                await $.get("lists/circular-doubly-linked-list/circular_doubly_linked_list.html", function(data) {
+                await $.get("lists/doubly-circular-linked-list/doubly_circular_linked_list.html", function(data) {
                     $("#circular-doubly-linked-desc").append(data);
                 });
                 downButtonToUp('#circular-doubly-linked-list-info-button');

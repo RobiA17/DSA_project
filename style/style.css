@@ -1475,6 +1475,66 @@ body {
     }
 }
 
-.up-circular-arrow-container {
-    transform: translateY(-30px);
+
+/* DOUBLY CIRCULAR LINKED LIST */
+
+
+/* INSERT A NEW NODE */
+
+.doubly-circular-pop-up .up-circular-arrow-container {
+    transform: translateY(-30px) translateX(3.3em);
+}
+
+.down-circular-arrow-container {
+    transform: rotate(180deg) translateY(10em) translateX(-.5em);
+}
+
+.doubly-circular-pop-up .up-circular-arrow-container .center-line {
+    width: 16em;
+    animation: circular-up-line-first 1s 7s forwards, circular-up-line-second 1.3s 11s ease-in-out forwards;
+}
+
+.doubly-circular-pop-up .down-circular-arrow-container .center-line {
+    width: 16em;
+    animation: circular-up-line-first 1s 7s forwards, circular-up-line-second 1.3s 11s ease-in-out forwards;
+}
+
+@keyframes circular-up-line-first {
+    from {
+        width: 16em;
+    }
+    to {
+        opacity: 16em;
+    }
+}
+
+@keyframes circular-up-line-second {
+    from {
+        width: 16em;
+    }
+    to {
+        width: 30em;
+    }
+}
+
+.doubly-circular-pop-up .first-animation .NULL {
+    animation: doubly-null-first 1s 4s alternate, doubly-null-second 2s 6s alternate;
+}
+
+.first-appear .HEAD-NULL,
+.first-appear .fa-left-long {
+    animation: hide 1s 7s forwards;
+}
+
+.doubly-circular-pop-up .node-container .head-container {
+    animation: appear 1s 3s forwards, head-to-right 1s 8s forwards;
+}
+
+@keyframes head-to-right {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(5em);
+    }
 }
