@@ -1321,22 +1321,31 @@ body {
     animation: adding-node 3s 11s forwards, doubly-move-left 1s 14s forwards;
 }
 
+.doubly-linked-pop-up .fourth-animation .first-appear .node,
+.doubly-linked-pop-up .fourth-animation .first-appear .fa-arrow-right-arrow-left {
+    animation: appear 1s 5s forwards, hide 1s 13s forwards;
+}
+
+.doubly-linked-pop-up .fourth-animation .first-appear {
+    animation: appear 1s 5s forwards;
+}
+
 @keyframes doubly-move-left {
     from {
         transform: translateX(0%);
     }
     to {
-        transform: translateX(-23.5em);
+        transform: translateX(-14.5em);
     }
 }
 
 @keyframes remove-head-null {
     from {
-        transform: translateX(-11.5em);
+        transform: translateX(-7.5em);
         opacity: 0;
     }
     to {
-        transform: translateX(-11.5em);
+        transform: translateX(-7.5em);
         opacity: 1;
     }
 }
@@ -1521,12 +1530,21 @@ body {
     animation: doubly-null-first 1s 4s alternate, doubly-null-second 2s 6s alternate;
 }
 
-.first-appear .HEAD-NULL,
-.first-appear .fa-left-long {
+.doubly-circular-pop-up .first-animation .first-appear .HEAD-NULL,
+.doubly-circular-pop-up .first-animation .first-appear .fa-left-long,
+.doubly-circular-pop-up .second-animation .nodes-to-push-right .old-head .HEAD-NULL,
+.doubly-circular-pop-up .second-animation .nodes-to-push-right .old-head .fa-left-long,
+.doubly-circular-pop-up .third-animation .first-appear .HEAD-NULL,
+.doubly-circular-pop-up .third-animation .first-appear .fa-left-long,
+.doubly-circular-pop-up .fourth-animation .first-appear .HEAD-NULL,
+.doubly-circular-pop-up .fourth-animation .first-appear .fa-left-long {
     animation: hide 1s 7s forwards;
 }
 
-.doubly-circular-pop-up .node-container .head-container {
+.doubly-circular-pop-up .first-animation .node-container .head-container,
+.doubly-circular-pop-up .second-animation .node-container .head-container,
+.doubly-circular-pop-up .third-animation .node-container .head-container,
+.doubly-circular-pop-up .fourth-animation .node-container .head-container {
     animation: appear 1s 3s forwards, head-to-right 1s 8s forwards;
 }
 
@@ -1536,5 +1554,93 @@ body {
     }
     to {
         transform: translateX(5em);
+    }
+}
+
+
+/* INSERT A NEW HEAD */
+
+.doubly-circular-pop-up .node-container .nodes-to-push-right {
+    transform: translateX(-23.5em);
+    animation: doubly-circular-move-right 1s 12s forwards;
+}
+
+@keyframes doubly-circular-move-right {
+    from {
+        transform: translateX(-23.5em);
+    }
+    to {
+        transform: translateX(-10em);
+    }
+}
+
+.doubly-circular-pop-up .second-animation .up-circular-arrow-container {
+    transform: translateY(-30px) translateX(-1.7em);
+}
+
+.doubly-circular-pop-up .second-animation .down-circular-arrow-container {
+    transform: rotate(180deg) translateY(10em) translateX(4.5em);
+}
+
+.doubly-circular-pop-up .nodes-to-push-right .NULL {
+    animation: doubly-new-head-null-first 1s 4s alternate, doubly-new-head-null-second 2s 6s alternate;
+}
+
+.doubly-circular-pop-up .second-animation .up-circular-arrow-container .center-line {
+    width: 16em;
+    animation: circular-up-line-first 1s 7s forwards, circular-up-line-second 1s 11.8s ease-in-out forwards;
+}
+
+.doubly-circular-pop-up .second-animation .down-circular-arrow-container .center-line {
+    width: 16em;
+    animation: circular-up-line-first 1s 7s forwards, circular-up-line-second 1s 11.8s ease-in-out forwards;
+}
+
+
+/* REMOVE LAST NODE */
+
+.doubly-circular-pop-up .third-animation .doubly-remove-last,
+.doubly-circular-pop-up .fourth-animation .NULL {
+    animation: doubly-remove-last-null-first 1s 4s alternate, doubly-remove-last-null-second 2s 6s alternate !important;
+}
+
+.doubly-circular-pop-up .third-animation .up-circular-arrow-container .center-line,
+.doubly-circular-pop-up .fourth-animation .up-circular-arrow-container .center-line {
+    width: 16em;
+    animation: circular-up-line-first 1s 7s forwards, circular-up-line-second 1.3s 11s ease-in-out forwards, circular-line-third 1s 14s forwards;
+}
+
+.doubly-circular-pop-up .third-animation .down-circular-arrow-container .center-line,
+.doubly-circular-pop-up .fourth-animation .down-circular-arrow-container .center-line {
+    width: 16em;
+    animation: circular-up-line-first 1s 7s forwards, circular-up-line-second 1.3s 11s ease-in-out forwards, circular-line-third 1s 14s forwards;
+}
+
+@keyframes circular-line-third {
+    from {
+        width: 30em;
+    }
+    to {
+        width: 16em;
+    }
+}
+
+
+/* REMOVE HEAD */
+
+.doubly-circular-pop-up .fourth-animation .second-appear {
+    animation: appear 1s 8s forwards, doubly-circular-move-left 1s 14s forwards, add-border 1s 14.5s forwards;
+}
+
+.doubly-circular-pop-up .fourth-animation .node-to-be-added {
+    animation: adding-node 3s 11s forwards, doubly-circular-move-left 1s 14s forwards;
+}
+
+@keyframes doubly-circular-move-left {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(-13.5em);
     }
 }

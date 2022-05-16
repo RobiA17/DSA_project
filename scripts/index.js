@@ -192,15 +192,15 @@ $(document).ready(async() => {
         });
 
         linkedSecond.click(() => {
-            initPopUp("lists/linked-list/insert_a_new_head_animation.html", ".second-animation");
+            initPopUp("lists/doubly-circular-linked-list/insert_a_new_head_animation.html", ".second-animation");
         });
 
         linkedThird.click(() => {
-            initPopUp("lists/linked-list/remove_last_node.html", ".third-animation");
+            initPopUp("lists/doubly-circular-linked-list/remove_last_node.html", ".third-animation");
         });
 
         linkedFourth.click(() => {
-            initPopUp("lists/linked-list/remove_head.html", ".fourth-animation");
+            initPopUp("lists/doubly-circular-linked-list/remove_head.html", ".fourth-animation");
         });
     }
 
