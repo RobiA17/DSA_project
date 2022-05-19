@@ -204,6 +204,64 @@ $(document).ready(async() => {
         });
     }
 
+    function initAnimationPage() {
+
+        var listId;
+        var counter = 5;
+        var rear = true;
+
+        $('#singly-linked').click(async() => {
+            counter = 5;
+            listId = 1;
+            $("#animation-container").empty();
+            await $.get("animation-pages/animation-frame.html", function(data) {
+                $("#animation-container").append(data);
+            });
+
+            scrollToLearn("#animation-container");
+
+            $(".add-button").click(() => {
+                if (listId == 1) {
+                    if (counter != 0) {
+                        $(".counter").text("Capacity: " + --counter);
+                        $(".counter").removeClass('shake-animation');
+                        if (rear) {
+                            if (counter == 4) {
+                                $("#for-nodes .NULL").remove();
+                                $("#for-nodes").append('<div class="node-with-arrow"  id="' + counter + '"> <div class="head node"> <section class="linked-list-data"> <input type="text"> </section> <div class="divider"></div> <section class="linked-list-next"></section>  </div><i class="fa-solid fa-right-long"></i></div> <div class="NULL">NULL</div>').fadeIn("slow");
+                            } else {
+                                $("#for-nodes .NULL").remove();
+                                $("#for-nodes").append('<div class="node-with-arrow" id="' + counter + '"> <div class="node"> <section class="linked-list-data"> <input type="text"> </section> <div class="divider"></div> <section class="linked-list-next"></section>  </div><i class="fa-solid fa-right-long"></i></div> <div class="NULL">NULL</div>').show();
+                            }
+                        }
+                    } else {
+                        $(".counter").addClass('shake-animation');
+                    }
+                }
+
+            });
+
+            $(".remove-button").click(() => {
+                if (listId == 1) {
+                    if (rear) {
+                        $("#for-nodes #" + counter).remove();
+                    }
+
+                    if (counter != 5) {
+                        $(".counter").text("Capacity: " + ++counter);
+                        $(".counter").removeClass('shake-animation');
+                    } else {
+                        $(".counter").addClass('shake-animation');
+                    }
+
+                }
+
+            });
+
+
+        });
+    }
+
     function initLearnPage() {
         learnContainer = $(".learn-container");
         var clickedLinked = false;
@@ -341,6 +399,7 @@ $(document).ready(async() => {
                     async() => {
                         clearMainBody();
                         await loadData("pages/animation_page.html");
+                        initAnimationPage();
                         mainBodyToLeftIn();
                     }, 200);
             });
@@ -525,7 +584,8 @@ $(document).ready(async() => {
                         mainBodyDownIn();
                         clearMainBody();
                         await loadData("pages/animation_page.html");
-                        loadAllData();
+                        // loadAllData();
+                        initAnimationPage();
                     }, 500);
                 }, 500);
             mainBodyDownOut();

@@ -1,0 +1,40 @@
+<section id="animation-frame">
+    <div id="animation-place">
+        <div class="counter">
+            Capacity: 5
+        </div>
+        <div id="for-nodes">
+            <div class="NULL">
+                NULL
+            </div>
+        </div>
+    </div>
+    <div id="dash-board" class="glass-panel">
+        <button class="add-button">
+            <i class="fa-solid fa-plus"></i>
+        </button>
+        <div class="dots" onclick="this.classList.toggle('active');">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="shadow cut"></div>
+            <div class="container cut">
+                <div class="drop cut2"></div>
+            </div>
+            <div class="list">
+                <ul>
+                    <li>
+                        TO / FROM front
+                    </li>
+                    <li>
+                        TO / FROM rear
+                    </li>
+                </ul>
+            </div>
+            <div class="dot"></div>
+        </div>
+        <div class="cursor" onclick="document.querySelector('.dots').classList.toggle('active');"></div>
+        <button class="remove-button">
+            <i class="fa-solid fa-minus"></i>
+        </button>
+    </div>
+</section>
