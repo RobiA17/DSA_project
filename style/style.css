@@ -43,7 +43,7 @@ body {
     height: 100vh;
     text-align: center;
     color: white;
-    padding-right: 30px;
+    /* padding-right: 30px; */
 }
 
 @keyframes gradient {
@@ -669,6 +669,7 @@ body {
     gap: 2em;
     justify-content: center !important;
     margin-top: 3em;
+    flex-wrap: wrap;
 }
 
 .left {
@@ -1892,4 +1893,20 @@ select {
 .linked-list-data input:focus-visible {
     border: none;
     outline: none;
+}
+
+
+/* RESPONSITIVITY */
+
+@media screen and (max-width: 700px) {
+    .description-container-hidden {
+        padding: 0px;
+    }
+    .menu {
+        opacity: 0;
+        flex-wrap: wrap;
+    }
+    .menu-appear {
+        opacity: 1;
+    }
 }
